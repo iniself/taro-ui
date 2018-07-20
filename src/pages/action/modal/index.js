@@ -18,6 +18,10 @@ export default class ModalPage extends Taro.Component {
     }
   }
 
+  log = e => {
+    console.log(e)
+  }
+
   handleClick = e => {
     const state = Object.assign({ isOpen: true }, e.currentTarget.dataset)
     this.setState(state)
@@ -43,9 +47,7 @@ export default class ModalPage extends Taro.Component {
             <View>这是内容知道吧</View>
           </Modal.Content>
           <Modal.Action>
-            <Modal.Action.Button onClick={console.log.bind(this, 1)}>
-              取消
-            </Modal.Action.Button>
+            <Modal.Action.Button onClick={this.log}>取消</Modal.Action.Button>
             <Modal.Action.Button>确认</Modal.Action.Button>
           </Modal.Action>
         </Modal>

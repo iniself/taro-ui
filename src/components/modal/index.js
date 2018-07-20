@@ -48,6 +48,7 @@ export default class Modal extends Taro.Component {
   render () {
     const { open } = this.state
     const { children } = this.props
+    console.log(children)
     return open ? (
       <View className='at-modal'>
         <View className='at-modal__overlay' onClick={this.handleClickOverlay} />

@@ -1,14 +1,16 @@
 import Taro from '@tarojs/taro'
 import { Button } from '@tarojs/components'
 
-import _isFunction from 'lodash/isFunction'
+import _noop from 'lodash/noop'
 
 import './index.scss'
 
 export default class ModalButton extends Taro.Component {
-  handleClick = () => {
+  handleClick = e => {
     const { onClick } = this.props
-    _isFunction(onClick) && onClick()
+    if (onClick) {
+      return onClick(e)
+    }
   }
 
   render () {
@@ -19,4 +21,8 @@ export default class ModalButton extends Taro.Component {
       </Button>
     )
   }
+}
+
+ModalButton.defaultProps = {
+  onClick: _noop
 }
